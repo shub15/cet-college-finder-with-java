@@ -20,12 +20,12 @@ public class CollegeBranch {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "college_id")
-    @JsonBackReference // Prevent cyclic serialization
+    @JsonBackReference("college-branch") // Prevent cyclic serialization
     private College college;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "branch_id")
-    @JsonBackReference // Prevent cyclic serialization
+    @JsonBackReference("branch-college-branch") // Prevent cyclic serialization
     private Branch branch;
 
     // Transient field to hold the branch name for serialization
@@ -40,8 +40,8 @@ public class CollegeBranch {
     }
 
     // One-to-One relationship with CutoffCategory
-    @OneToOne(mappedBy = "collegeBranch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference // This side owns the relationship
+    @OneToOne(mappedBy = "collegeBranch", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference("college-branch-cutoff") // This side owns the relationship
     private CutoffCategory cutoffCategories;
 
     // Getters and Setters

@@ -3,6 +3,8 @@ package com.cetcollegefinder.app.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -28,12 +30,14 @@ public class UserDTO {
     private String email;
     private String password;
     private String name;
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "user_college_list",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "college_id")
     )
+    @JsonManagedReference("user-college")
     private List<College> favoriteColleges = new ArrayList<>();
 
     // Getters and setters

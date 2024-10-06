@@ -49,7 +49,7 @@ public class CutoffCategory {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "college_branch_id")
-    @JsonBackReference
+    @JsonBackReference("college-branch-cutoff")
     private CollegeBranch collegeBranch;
 
     // Getters and Setters
