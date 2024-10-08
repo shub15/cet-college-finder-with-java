@@ -47,7 +47,7 @@ public class UserController {
         return service.getUserByName(name);
     }
 
-    @GetMapping("/userbyemail")
+    @PostMapping("/userbyemail")
     public UserDTO findUserByEmail(@RequestBody UserDTO user) {
         return service.getUserByEmail(user);
     }
