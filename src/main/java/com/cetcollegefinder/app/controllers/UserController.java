@@ -29,7 +29,7 @@ public class UserController {
     private UserService service;
 
     @PostMapping("/add")
-    public UserDTO addUser(@RequestBody UserDTO user) {
+    public Boolean addUser(@RequestBody UserDTO user) {
         return service.saveUserDTO(user);
     }
     @GetMapping("/users")

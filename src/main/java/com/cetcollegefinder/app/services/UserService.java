@@ -17,8 +17,13 @@ public class UserService {
     @Autowired
     private CollegeRepository collegeRepository;
 
-    public UserDTO saveUserDTO(UserDTO user) {
-        return userRepo.save(user);
+    public Boolean saveUserDTO(UserDTO user) {
+        UserDTO existingUser = userRepo.findByEmail(user.getEmail());
+        if (existingUser != null) {
+            return false;
+        }
+        userRepo.save(user);
+        return true;
     }
 
     public List<UserDTO> getUsers() {

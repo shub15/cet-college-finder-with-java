@@ -1,6 +1,5 @@
 package com.cetcollegefinder.app.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -12,7 +11,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -36,6 +35,8 @@ public class College {
     private String collegeType;
     private String minority;
     private Integer autonomy;
+    @Lob
+    private byte[] logo;
     // private Double cutoff2023;
     // private Double cutoff2022;
     // private Double cutoff2021;

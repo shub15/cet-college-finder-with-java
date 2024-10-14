@@ -30,6 +30,9 @@ public class UserDTO {
     private String email;
     private String password;
     private String name;
+    private String location;
+    private Boolean reservation;
+    private Integer percentile;
     
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
