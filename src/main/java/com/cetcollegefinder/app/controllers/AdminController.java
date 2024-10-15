@@ -3,7 +3,6 @@ package com.cetcollegefinder.app.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import com.cetcollegefinder.app.dto.UserDTO;
 import com.cetcollegefinder.app.services.AdminService;
-import com.cetcollegefinder.app.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
