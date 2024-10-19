@@ -4,7 +4,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
-RUN mvn spring-boot:run -Dspring-boot.run.profiles=prod
+# RUN mvn spring-boot:run -Dspring-boot.run.profiles=prod
 
 # Stage 2: Run the application
 FROM openjdk:17-jdk-slim
