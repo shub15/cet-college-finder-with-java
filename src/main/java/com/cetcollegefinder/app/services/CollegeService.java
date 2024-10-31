@@ -44,6 +44,20 @@ public class CollegeService {
         return null;
     }
 
+    public CollegeBranch updateBranchCutoffs(Long collegeId, Long branchId, CollegeBranch updatedBranch) {
+        College college = collegeRepository.findById(collegeId).orElseThrow(() -> new RuntimeException("College not found"));
+        CollegeBranch branch = college.getBranches().stream()
+                .filter(b -> b.getCollegeBranchId().equals(branchId))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Branch not found"));
+    
+        // Update the cutoff categories with new data
+        branch.setCutoffCategories(updatedBranch.getCutoffCategories());
+    
+        collegeRepository.save(college);  // Save the updated college with modified branch cutoffs
+        return branch;
+    }    
+
     // public CollegeBranch updateCollegeBranch(Long collegeId, Long branchId, CollegeBranch updatedBranch) {
     //     College college = getCollegeById(collegeId);
     //     if (college != null) {

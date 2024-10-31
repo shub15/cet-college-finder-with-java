@@ -48,6 +48,14 @@ public class CollegeController {
         return null;
     }
 
+    @PutMapping("/{collegeId}/branches/{branchId}/cutoffs")
+    public CollegeBranch updateBranchCutoffs(
+            @PathVariable Long collegeId,
+            @PathVariable Long branchId,
+            @RequestBody CollegeBranch updatedBranch) {
+        return collegeService.updateBranchCutoffs(collegeId, branchId, updatedBranch);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteCollege(@PathVariable Long id) {
         collegeService.deleteCollege(id);
@@ -56,13 +64,16 @@ public class CollegeController {
     // New endpoints for branch and cutoff management
 
     @PostMapping("/{collegeId}/branches")
-    public CollegeBranch createBranchForCollege(@PathVariable Long collegeId, @RequestBody CollegeBranch collegeBranch) {
+    public CollegeBranch createBranchForCollege(@PathVariable Long collegeId,
+            @RequestBody CollegeBranch collegeBranch) {
         return collegeService.saveCollegeBranch(collegeId, collegeBranch);
     }
 
     // @PutMapping("/{collegeId}/branches/{branchId}")
-    // public CollegeBranch updateBranchForCollege(@PathVariable Long collegeId, @PathVariable Long branchId, @RequestBody CollegeBranch updatedBranch) {
-    //     return collegeService.updateCollegeBranch(collegeId, branchId, updatedBranch);
+    // public CollegeBranch updateBranchForCollege(@PathVariable Long collegeId,
+    // @PathVariable Long branchId, @RequestBody CollegeBranch updatedBranch) {
+    // return collegeService.updateCollegeBranch(collegeId, branchId,
+    // updatedBranch);
     // }
 
     @DeleteMapping("/{collegeId}/branches/{branchId}")
