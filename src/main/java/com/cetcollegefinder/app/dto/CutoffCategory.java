@@ -47,7 +47,7 @@ public class CutoffCategory {
     @Column(nullable = true)
     private Double ewsPercentile;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "college_branch_id")
     @JsonBackReference("college-branch-cutoff")
     private CollegeBranch collegeBranch;

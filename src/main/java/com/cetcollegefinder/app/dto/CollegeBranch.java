@@ -40,7 +40,7 @@ public class CollegeBranch {
     }
 
     // One-to-One relationship with CutoffCategory
-    @OneToOne(mappedBy = "collegeBranch", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "collegeBranch", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JsonManagedReference("college-branch-cutoff") // This side owns the relationship
     private CutoffCategory cutoffCategories;
 

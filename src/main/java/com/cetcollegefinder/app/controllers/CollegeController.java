@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -48,12 +49,12 @@ public class CollegeController {
         return null;
     }
 
-    @PutMapping("/{collegeId}/branches/{branchId}/cutoffs")
+    @PatchMapping("/{collegeId}/branches/{branchId}/cutoffs")
     public CollegeBranch updateBranchCutoffs(
             @PathVariable Long collegeId,
             @PathVariable Long branchId,
-            @RequestBody CollegeBranch updatedBranch) {
-        return collegeService.updateBranchCutoffs(collegeId, branchId, updatedBranch);
+            @RequestBody Map<String, Double> updatedCutoffs) {
+        return collegeService.updateBranchCutoffs(collegeId, branchId, updatedCutoffs);
     }
 
     @DeleteMapping("/{id}")

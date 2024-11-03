@@ -15,7 +15,7 @@ public class WebController {
     }
 
     @RequestMapping(value = { "/", "/about", "/search", "/form", "/colleges", "/login", "/logout", "/signup",
-            "/dashboard", "/admin", "/admin/login", "/admin/home", "/admin/notifications" }) 
+            "/dashboard", "/admin", "/admin/login", "/admin/home", "/admin/notifications", "/admin/edit", "/admin/editform"}) 
     public String forwardToIndex() {
         return "forward:/index.html";
     }
